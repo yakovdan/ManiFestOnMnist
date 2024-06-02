@@ -71,7 +71,7 @@ for exp_idx in range(1):  # Folds for picking optimal percentile. Can be 1.
             kernels = construct_kernel(x_train, y_train, cur_percentile)
 
             # Compute minimal rank in our kernels
-            min_rank = 20 # min([np.linalg.matrix_rank(K, tol=5e-3) for K in kernels])
+            min_rank = min([np.linalg.matrix_rank(K, tol=5e-3) for K in kernels])
             print(f"min_rank: {min_rank}")
             # Compute M from kernels
             kernels_oct = np.stack(kernels, axis=2)
